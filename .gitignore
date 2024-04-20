@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DndApi/.vs/DndApi/DesignTimeBuild
+/DndApi/.vs/DndApi/FileContentIndex
+/DndApi/.vs/DndApi/v15

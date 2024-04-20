@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DndApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c70abcdf6bb66903ce28e7cb47a819d78ca1a7cd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e7850aca50767637cca54e3b9011dcf823c3d5c1")]
 [assembly: System.Reflection.AssemblyProductAttribute("DndApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DndApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

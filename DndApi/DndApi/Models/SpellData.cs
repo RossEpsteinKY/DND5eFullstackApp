@@ -74,4 +74,24 @@
     }
 
     }
+
+    public class SpellListModel
+    {
+
+
+        public class Spell
+        {
+            public string Index { get; set; }
+            public string Name { get; set; }
+            public int Level { get; set; }
+            public string Url { get; set; }
+        }
+
+        public class SpellList
+        {
+            public int Count { get; set; }
+            public List<Spell> Results { get; set; }
+        }
+    }
+
 }

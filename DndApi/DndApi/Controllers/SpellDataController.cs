@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Dynamic;
+using System.Net.Http;
 using static DndApi.Models.SpellData;
 
 namespace DndApi.Controllers
@@ -15,6 +16,7 @@ namespace DndApi.Controllers
         private string baseUrl = "https://www.dnd5eapi.co/api/spells/";
 
         [HttpGet]
+        [Route("/getSpellData")]
         public async Task<object> GetSpellData(string id)
         {
 
@@ -30,6 +32,31 @@ namespace DndApi.Controllers
 
             return Ok(spellData);
 
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<SpellListModel.SpellList>> GetSpellsAsync()
+        {
+            try
+            {
+                // URL from where you fetch the data
+            
+
+                // Fetch data from the URL
+                var spellList = await _client.GetFromJsonAsync<SpellListModel.SpellList>(baseUrl);
+
+                if (spellList == null)
+                {
+                    return NotFound();
+                }
+
+                return spellList;
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it appropriately
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
     }

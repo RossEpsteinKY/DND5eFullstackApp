@@ -12,7 +12,7 @@ namespace DndApi.Controllers
         private string baseUrl = "https://www.dnd5eapi.co/api/";
 
         [HttpGet]
-        [Route("/getClassData")]
+        [Route("/getClassData/{id}")]
         public async Task<object> GetClassData(string id)
         {
 

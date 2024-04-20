@@ -16,7 +16,7 @@ namespace DndApi.Controllers
         private string baseUrl = "https://www.dnd5eapi.co/api/spells/";
 
         [HttpGet]
-        [Route("/getSpellData")]
+        [Route("/getSpellData/{id}")]
         public async Task<object> GetSpellData(string id)
         {
 

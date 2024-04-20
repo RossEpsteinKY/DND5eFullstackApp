@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "FYWSRMpBfAqle8x07Ayms+J//HLYcPsCbe8veDmHfH1xWjvJJKO8KVEBD9cyGqDj4DN+RTqmTwa3JvLm6xSz4w==",
+  "dgSpecHash": "I04800wtAuLZu4rxPAVvqfE1AH0qJGgN3mJLR3GWNHgADGEy1fnYxwIBi7f6ZRk80aIQ+cJmdm4DhaTniY5NaA==",
   "success": true,
   "projectFilePath": "D:\\code\\FullStackDnd\\DndApi\\DndApi\\DndApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rosse\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\rosse\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\rosse\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\rosse\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\rosse\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\rosse\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

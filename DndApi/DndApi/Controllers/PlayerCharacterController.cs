@@ -117,5 +117,53 @@ namespace DndApi.Controllers
             }
 
         }
+
+        [HttpGet]
+        [Route("/getLanguages/")]
+        public async Task<ActionResult<CharacterDataModel.Languages.LanguagesList>> GetListOfLanguages()
+        {
+            try
+            {
+                var languagesList = await _client.GetFromJsonAsync<CharacterDataModel.Languages.LanguagesList>($"{baseUrl}/languages");
+
+                if (languagesList == null)
+                {
+                    return NotFound();
+                }
+
+                return languagesList;
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
+        [HttpGet]
+        [Route("/getLanguageDetails/{id}")]
+        public async Task<object> GetLanguageDetails(string id) 
+        {
+            try 
+            {
+
+                var response = await _client.GetAsync($"{baseUrl}/languages/{id}");
+
+                if (response == null)
+                {
+                    return NotFound();
+                }
+
+                var content = await response.Content.ReadAsStringAsync();
+                var languageDetails = JsonConvert.DeserializeObject<CharacterDataModel.Languages.LanguagesDetails>(content);
+
+                return Ok(languageDetails);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
     }
 }

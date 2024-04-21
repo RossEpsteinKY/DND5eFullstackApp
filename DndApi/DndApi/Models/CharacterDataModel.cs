@@ -50,6 +50,25 @@ namespace DndApi.Models
                 public string? Url { get; set; }
             }
         }
+
+        public class Languages
+        {
+            public class LanguagesList
+            {
+                public List<GenericList>? Results {get; set;}
+                public int? Count { get; set; }
+            }
+
+            public class LanguagesDetails
+            { 
+                public string? Index { get; set; }
+                public string? Name { get; set; }
+                public string? Type { get; set; }
+                public string[]? Typical_Speakers { get; set; }
+                public string? Script { get; set; }
+                public string? Url { get; set; }
+            }
+        }
     }
 
  

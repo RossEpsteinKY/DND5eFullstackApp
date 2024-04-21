@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DndApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8577623517fc551ef9f29d367c608f75247e83b1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efb37656f6c2fbccd4274f6036614c9a76452ea8")]
 [assembly: System.Reflection.AssemblyProductAttribute("DndApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DndApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -5,7 +5,7 @@ The intent of this project repo is for practice and demo work with C# .Net Core 
 ### Technologies In Use:
 - C#
 - .Net Core 8
-- Data provided by <https://swapi.dev>
+- SRD Data provided by [5th Ed Api](https://www.dnd5eapi.co/)
 
 #### ToDo:
 - Front End Plans:

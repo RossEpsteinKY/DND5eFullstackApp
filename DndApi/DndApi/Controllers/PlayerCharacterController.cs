@@ -71,7 +71,7 @@ namespace DndApi.Controllers
         [Route("/getAlignments/")]
         public async Task<ActionResult<CharacterDataModel.Alignments.AlignmentsList>> GetListOfAlignments()
         {
-            try 
+            try
             {
                 var alignmentsList = await _client.GetFromJsonAsync<CharacterDataModel.Alignments.AlignmentsList>($"{baseUrl}/alignments");
 
@@ -81,12 +81,12 @@ namespace DndApi.Controllers
                 }
 
                 return alignmentsList;
-            }   
-            catch (Exception ex) 
-            { 
+            }
+            catch (Exception ex)
+            {
                 return BadRequest(ex);
             }
-        
+
         }
 
         [HttpGet]
@@ -142,9 +142,9 @@ namespace DndApi.Controllers
 
         [HttpGet]
         [Route("/getLanguageDetails/{id}")]
-        public async Task<object> GetLanguageDetails(string id) 
+        public async Task<object> GetLanguageDetails(string id)
         {
-            try 
+            try
             {
 
                 var response = await _client.GetAsync($"{baseUrl}/languages/{id}");
@@ -164,6 +164,58 @@ namespace DndApi.Controllers
             {
                 return BadRequest(ex);
             }
+        }
+
+        [HttpGet]
+        [Route("/getProficiencies")]
+        public async Task<ActionResult<CharacterDataModel.Proficiencies.ProficienciesList>> GetProficienciesList()
+        {
+            try
+            {
+
+                var proficienciesList = await _client.GetFromJsonAsync<CharacterDataModel.Proficiencies.ProficienciesList>($"{baseUrl}/proficiencies");
+                if (proficienciesList == null)
+                {
+                    return NotFound();
+                }
+
+                return proficienciesList;
+
+            } 
+            catch (Exception ex) 
+            { 
+                return BadRequest(ex); 
+            }
+        }
+
+        [HttpGet]
+        [Route("/getProficiency/{id}")]
+        public async Task<object> GetProficiency(string id)
+        {
+            try { 
+
+        
+                var response = await _client.GetAsync($"{baseUrl}/proficiencies/{id}");
+
+                if (response == null)
+                {
+                    return NotFound();
+                }
+
+                var content = await response.Content.ReadAsStringAsync();
+                
+                
+                var proficiencyDetails = JsonConvert.DeserializeObject<CharacterDataModel.Proficiencies.ProficiencyDetails>(content);
+                
+
+                return Ok(proficiencyDetails);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+           
         }
     }
 }

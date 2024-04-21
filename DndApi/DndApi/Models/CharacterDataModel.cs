@@ -1,4 +1,8 @@
-﻿using static DndApi.Models.ReusableModels;
+﻿using System.Security.Cryptography.Xml;
+using System.Text.Json.Serialization;
+using static DndApi.Models.CharacterDataModel.Proficiencies;
+using static DndApi.Models.ReusableModels;
+using static DndApi.Models.SpellData;
 
 namespace DndApi.Models
 {
@@ -68,6 +72,50 @@ namespace DndApi.Models
                 public string? Script { get; set; }
                 public string? Url { get; set; }
             }
+        }
+
+        public class Proficiencies
+        {
+            public class ProficienciesList 
+            { 
+                public List<GenericList>? Results { get; set;}
+                public int? Count { get; set; }
+            }
+
+            public class ProficiencyDetails 
+            {
+                public string? Index { get; set; }
+                public string? Type { get; set; }
+                public string? Name { get; set; }
+                public List<Class>? Classes { get; set; }
+                public List<Race>? Races { get; set; }
+                public string? Url { get; set; }
+
+                public ReferenceMaterials? Reference { get; set; }
+                //public static List<ReferenceMaterial>? referenceMaterial { get; set; }
+            }
+
+            public class Race
+            {
+                public string? Index { get; set; }
+                public string? Name { get; set; }
+                public string? Url { get; set; }
+            }
+            public class Class
+            {
+                public string? Index { get; set; }
+                public string? Name { get; set; }
+                public string? Url { get; set; }
+            }
+
+            public class ReferenceMaterials
+            {
+                public string? Index { get; set; }
+                public string? Name { get; set; }
+                public string? Url { get; set; }
+            }
+
+
         }
     }
 

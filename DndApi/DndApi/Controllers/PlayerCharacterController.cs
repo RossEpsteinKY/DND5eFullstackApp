@@ -15,7 +15,7 @@ namespace DndApi.Controllers
 
         [HttpGet]
         [Route("/getAllAbilityScores")]
-        public async Task<ActionResult<PlayerAbilityScores.AbilityScoreList>> GetAllAbilityScores()
+        public async Task<ActionResult<CharacterDataModel.AbilityScores.AbilityScoreList>> GetAllAbilityScores()
         {
             try
             {
@@ -23,7 +23,7 @@ namespace DndApi.Controllers
 
 
                 // Fetch data from the URL
-                var abilityScoreList = await _client.GetFromJsonAsync<PlayerAbilityScores.AbilityScoreList>($"{ baseUrl}/ability-scores");
+                var abilityScoreList = await _client.GetFromJsonAsync<CharacterDataModel.AbilityScores.AbilityScoreList>($"{ baseUrl}/ability-scores");
 
                 if (abilityScoreList == null)
                 {
@@ -55,7 +55,7 @@ namespace DndApi.Controllers
                 //var monsterData = JsonConvert.DeserializeObject<MonsterData>(content);
                 
                 var content = await response.Content.ReadAsStringAsync();
-                var abilityScoreDetails = JsonConvert.DeserializeObject<AbilityScoreDetails>(content);
+                var abilityScoreDetails = JsonConvert.DeserializeObject<CharacterDataModel.AbilityScoreDetails>(content);
 
 
                 return Ok(abilityScoreDetails);

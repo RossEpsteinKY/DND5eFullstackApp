@@ -23,7 +23,7 @@ namespace DndApi.Controllers
 
 
                 // Fetch data from the URL
-                var abilityScoreList = await _client.GetFromJsonAsync<CharacterDataModel.AbilityScores.AbilityScoreList>($"{ baseUrl}/ability-scores");
+                var abilityScoreList = await _client.GetFromJsonAsync<CharacterDataModel.AbilityScores.AbilityScoreList>($"{baseUrl}/ability-scores");
 
                 if (abilityScoreList == null)
                 {
@@ -43,17 +43,17 @@ namespace DndApi.Controllers
         [Route("/getAbilityScoreDetails/{id}")]
         public async Task<object> getAbilityScoreDetails(string id)
         {
-            try 
+            try
             {
                 var response = await _client.GetAsync($"{baseUrl}/ability-scores/{id}");
 
-                if (response== null)
-                {  return NotFound(); 
+                if (response == null)
+                { return NotFound();
                 }
 
                 //var content = await response.Content.ReadAsStringAsync();
                 //var monsterData = JsonConvert.DeserializeObject<MonsterData>(content);
-                
+
                 var content = await response.Content.ReadAsStringAsync();
                 var abilityScoreDetails = JsonConvert.DeserializeObject<CharacterDataModel.AbilityScoreDetails>(content);
 
@@ -61,10 +61,32 @@ namespace DndApi.Controllers
                 return Ok(abilityScoreDetails);
 
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 return NotFound(ex);
             }
+        }
+
+        [HttpGet]
+        [Route("/getAlignments/")]
+        public async Task<ActionResult<CharacterDataModel.Alignments>> GetListOfAlignments()
+        {
+            try 
+            {
+                var alignmentsList = await _client.GetFromJsonAsync<CharacterDataModel.Alignments>($"{baseUrl}/alignments");
+
+                if (alignmentsList == null)
+                {
+                    return NotFound();
+                }
+
+                return alignmentsList;
+            }   
+            catch (Exception ex) 
+            { 
+                return BadRequest(ex);
+            }
+        
         }
     }
 }

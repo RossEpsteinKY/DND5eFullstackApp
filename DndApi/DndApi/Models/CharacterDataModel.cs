@@ -9,15 +9,15 @@ namespace DndApi.Models
             public class AbilityScoreList
             {
                 public int? Count { get; set; }
-                public List<AbilityScoreResults>? Results { get; set; }
+                public List<GenericList>? Results { get; set; }
             }
 
-            public class AbilityScoreResults
+       /**     public class AbilityScoreResults
             {
                 public string? Index { get; set; }
                 public string? Name { get; set; }
                 public string? Url { get; set; }
-            }
+            } **/
 
 
         }
@@ -30,5 +30,14 @@ namespace DndApi.Models
             public List<GenericList>? Skills { get; set; }
             public string? Url { get; set; }
         }
+
+        public class Alignments
+        {
+            public int? Count { get; set; }
+
+            public List<GenericList>? Results { get; set; }
+        }
     }
+
+ 
 }

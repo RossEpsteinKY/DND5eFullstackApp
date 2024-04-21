@@ -69,11 +69,11 @@ namespace DndApi.Controllers
 
         [HttpGet]
         [Route("/getAlignments/")]
-        public async Task<ActionResult<CharacterDataModel.Alignments>> GetListOfAlignments()
+        public async Task<ActionResult<CharacterDataModel.Alignments.AlignmentsList>> GetListOfAlignments()
         {
             try 
             {
-                var alignmentsList = await _client.GetFromJsonAsync<CharacterDataModel.Alignments>($"{baseUrl}/alignments");
+                var alignmentsList = await _client.GetFromJsonAsync<CharacterDataModel.Alignments.AlignmentsList>($"{baseUrl}/alignments");
 
                 if (alignmentsList == null)
                 {
@@ -87,6 +87,35 @@ namespace DndApi.Controllers
                 return BadRequest(ex);
             }
         
+        }
+
+        [HttpGet]
+        [Route("/getAlignmentDetails/{id}/")]
+        public async Task<object> GetAlignmentDetails(string id)
+        {
+            try
+            {
+                var response = await _client.GetAsync($"{baseUrl}/alignments/{id}");
+
+                if (response == null)
+                {
+                    return NotFound();
+                }
+
+                //var content = await response.Content.ReadAsStringAsync();
+                //var monsterData = JsonConvert.DeserializeObject<MonsterData>(content);
+
+                var content = await response.Content.ReadAsStringAsync();
+                var alignmentDetails = JsonConvert.DeserializeObject<CharacterDataModel.Alignments.AlignmentsDetails>(content);
+
+
+                return Ok(alignmentDetails);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
         }
     }
 }

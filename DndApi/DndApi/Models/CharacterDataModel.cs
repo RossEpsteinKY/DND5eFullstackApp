@@ -33,9 +33,22 @@ namespace DndApi.Models
 
         public class Alignments
         {
-            public int? Count { get; set; }
+            public class AlignmentsList
+            {
+                public int? Count { get; set; }
 
-            public List<GenericList>? Results { get; set; }
+                public List<GenericList>? Results { get; set; }
+            }
+
+            public class AlignmentsDetails 
+            { 
+                public string? Index { get; set; }
+                public string? Name { get; set; }
+                public string? Abbreviation { get; set; }
+                public string? Desc { get; set; }
+
+                public string? Url { get; set; }
+            }
         }
     }
 

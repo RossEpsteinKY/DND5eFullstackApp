@@ -1,4 +1,6 @@
-﻿namespace DndApi.Models
+﻿using static DndApi.Models.ReusableModels;
+
+namespace DndApi.Models
 {
     public class PlayerCharacterDataModel
     {
@@ -17,6 +19,17 @@
                 public string? Name { get; set; }
                 public string? Url { get; set; }
             }
+
+
+        }
+        public class AbilityScoreDetails
+        {
+            public string? Index { get; set; }
+            public string? Name { get; set; }
+            public string? Full_Name { get; set; }
+            public string[]? Desc { get; set; }
+            public List<GenericList>? Skills { get; set; }
+            public string? Url { get; set; }
         }
 
     }

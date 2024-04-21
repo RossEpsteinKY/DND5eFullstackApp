@@ -1,4 +1,6 @@
-﻿namespace DndApi.Models
+﻿using static DndApi.Models.ReusableModels;
+
+namespace DndApi.Models
 {
     public class RacesData
     {
@@ -54,14 +56,7 @@
         public string? Url { get; set; }
     }
 
-    public class GenericList
-    {
 
-        public string? Index { get; set; }
-        public string? Name { get; set; }
-        public string? Url { get; set; }
-
-    }
 
     public class RaceTraits
     {

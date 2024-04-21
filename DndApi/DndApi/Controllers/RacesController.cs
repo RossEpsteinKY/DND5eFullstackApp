@@ -9,7 +9,7 @@ namespace DndApi.Controllers
     public class RacesController(HttpClient client) : ControllerBase
     {
         private HttpClient _client = client;
-        private string baseUrl = "https://www.dnd5eapi.co/api/races/";
+        private string baseUrl = "https://www.dnd5eapi.co/api";
 
 
 
@@ -19,7 +19,7 @@ namespace DndApi.Controllers
         {
             try
             {
-                var _racesList = await _client.GetFromJsonAsync<RacesList>(baseUrl);
+                var _racesList = await _client.GetFromJsonAsync<RacesList>($"{ baseUrl}/races");
 
                 if (_racesList == null)
                 {
@@ -41,7 +41,7 @@ namespace DndApi.Controllers
         [Route("/getRace/{id}")]
         public async Task<object> GetPlayerRace(string id)
         {
-            var response = await _client.GetAsync(baseUrl + id);
+            var response = await _client.GetAsync($"{baseUrl}/races/{id}");
 
             if (!response.IsSuccessStatusCode)
             {
@@ -57,6 +57,30 @@ namespace DndApi.Controllers
             var raceData = JsonConvert.DeserializeObject<PlayerRace>(content);
 
             return Ok(raceData);
+
+
+        }
+
+        [HttpGet]
+        [Route("/getRaceTraits/{id}")]
+        public async Task<object> GetPlayerRaceTraits(string id)
+        {
+            var response = await _client.GetAsync($"{baseUrl}/traits/{id}");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return NotFound();
+            }
+
+            //var content = await response.Content.ReadAsStringAsync();
+            //var monsterData = JsonConvert.DeserializeObject<MonsterData>(content);
+
+
+            var content = await response.Content.ReadAsStringAsync();
+
+            var traitData = JsonConvert.DeserializeObject<RaceTraitDetails>(content);
+
+            return Ok(traitData);
 
 
         }

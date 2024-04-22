@@ -31,67 +31,11 @@ namespace DndApi.Controllers
         }
 
         [HttpGet]
-        [Route("/getAllClasses")]
-        public async Task<ActionResult<ClassList>> GetAllClasses()
-        {
-            try
-            {
-                // URL from where you fetch the data
-
-
-                // Fetch data from the URL
-                var classesList = await _client.GetFromJsonAsync<ClassList>($"{baseUrl}/classes");
-
-                if (classesList == null)
-                {
-                    return NotFound();
-                }
-
-                return classesList;
-            }
-            catch (Exception ex)
-            {
-                // Log the exception or handle it appropriately
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
-
-        [HttpGet]
-        [Route("/getAllSubClasses")]
-        public async Task<ActionResult<SubClassesData.SubClassesList>> GetAllSubClasses()
-        {
-            try
-            {
-                // URL from where you fetch the data
-
-
-                // Fetch data from the URL
-                var subClassesList = await _client.GetFromJsonAsync<SubClassesData.SubClassesList>($"{baseUrl}/subclasses");
-
-                if (subClassesList == null)
-                {
-                    return NotFound();
-                }
-
-                return subClassesList;
-            }
-            catch (Exception ex)
-            {
-                // Log the exception or handle it appropriately
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
-
-        [HttpGet]
         [Route("/getSubClass/{id}")]
         public async Task<ActionResult<SubClassesData.Subclass>> GetSubClass(string id)
         {
             try
             {
-                // URL from where you fetch the data
-
-
-                // Fetch data from the URL
                 var subClass = await _client.GetFromJsonAsync<SubClassesData.Subclass>($"{baseUrl}/subclasses/{id}");
 
                 if (subClass == null)
@@ -103,7 +47,6 @@ namespace DndApi.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it appropriately
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -114,8 +57,6 @@ namespace DndApi.Controllers
         {
             try
             {
-                // URL from where you fetch the data
-
                 var response = await _client.GetAsync($"{baseUrl}/classes/{id}/spellcasting");
 
                 if (!response.IsSuccessStatusCode)
@@ -130,7 +71,6 @@ namespace DndApi.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it appropriately
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -142,8 +82,6 @@ namespace DndApi.Controllers
 
             try
             {
-                // URL from where you fetch the data
-
                 var response = await _client.GetAsync($"{baseUrl}/classes/{id}/multi-classing");
 
                 if (!response.IsSuccessStatusCode)
@@ -158,7 +96,6 @@ namespace DndApi.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it appropriately
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -171,8 +108,6 @@ namespace DndApi.Controllers
 
             try
             {
-                // URL from where you fetch the data
-
                 var response = await _client.GetAsync($"{baseUrl}/classes/{id}/features");
 
                 if (!response.IsSuccessStatusCode)
@@ -187,7 +122,6 @@ namespace DndApi.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it appropriately
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -199,8 +133,6 @@ namespace DndApi.Controllers
 
             try
             {
-                // URL from where you fetch the data
-
                 var response = await _client.GetAsync($"{baseUrl}/classes/{id}/proficiencies");
 
                 if (!response.IsSuccessStatusCode)
@@ -215,7 +147,6 @@ namespace DndApi.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it appropriately
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }

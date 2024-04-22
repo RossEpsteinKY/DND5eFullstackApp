@@ -12,31 +12,6 @@ namespace DndApi.Controllers
         private string baseUrl = "https://www.dnd5eapi.co/api";
 
 
-
-        [HttpGet]
-        [Route("/getAllRaces")]
-        public async Task<ActionResult<RacesList>> GetAllRaces()
-        {
-            try
-            {
-                var _racesList = await _client.GetFromJsonAsync<RacesList>($"{ baseUrl}/races");
-
-                if (_racesList == null)
-                {
-                    return NotFound();
-
-                }
-                return _racesList;
-            }
-
-            catch (Exception ex)
-            {
-                // Log the exception or handle it appropriately
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-
-        }
-
         [HttpGet]
         [Route("/getRace/{id}")]
         public async Task<object> GetPlayerRace(string id)
@@ -47,10 +22,6 @@ namespace DndApi.Controllers
             {
                 return NotFound();
             }
-
-            //var content = await response.Content.ReadAsStringAsync();
-            //var monsterData = JsonConvert.DeserializeObject<MonsterData>(content);
-            
             
             var content = await response.Content.ReadAsStringAsync();
 
@@ -72,17 +43,11 @@ namespace DndApi.Controllers
                 return NotFound();
             }
 
-            //var content = await response.Content.ReadAsStringAsync();
-            //var monsterData = JsonConvert.DeserializeObject<MonsterData>(content);
-
-
             var content = await response.Content.ReadAsStringAsync();
 
             var traitData = JsonConvert.DeserializeObject<RaceTraitDetails>(content);
 
             return Ok(traitData);
-
-
         }
 
     }

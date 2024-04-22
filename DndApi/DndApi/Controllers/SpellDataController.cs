@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Dynamic;
 using System.Net.Http;
-using static DndApi.Models.SpellData;
+using static DndApi.Models.SpellDataModel;
 
 namespace DndApi.Controllers
 {
@@ -13,14 +13,14 @@ namespace DndApi.Controllers
     public class SpellDataController(HttpClient client) : ControllerBase
     {
         private HttpClient _client = client;
-        private string baseUrl = "https://www.dnd5eapi.co/api/spells/";
+        private string baseUrl = "https://www.dnd5eapi.co/api";
 
         [HttpGet]
         [Route("/getSpellData/{id}")]
         public async Task<object> GetSpellData(string id)
         {
 
-            var response = await _client.GetAsync(baseUrl + id);
+            var response = await _client.GetAsync($"{baseUrl}/spells/{id}");
 
             if (!response.IsSuccessStatusCode)
             {
@@ -31,33 +31,27 @@ namespace DndApi.Controllers
             var spellData = JsonConvert.DeserializeObject<Spell>(content);
 
             return Ok(spellData);
-
         }
+
 
         [HttpGet]
-        public async Task<ActionResult<SpellListModel.SpellList>> GetSpellsAsync()
+        [Route("/getMagicSchoolData/{id}")]
+        public async Task<object> GetMagicSchoolData(string id)
         {
-            try
+
+            var response = await _client.GetAsync($"{baseUrl}/magic-schools/{id}");
+
+            if (response == null) 
             {
-                // URL from where you fetch the data
+                return NotFound();
+            }
+
+            var content = await response.Content.ReadAsStringAsync();
+            var magicSchoolData = JsonConvert.DeserializeObject<MagicSchool.MagicSchoolData>(content);
+
+            return Ok(magicSchoolData);
             
-
-                // Fetch data from the URL
-                var spellList = await _client.GetFromJsonAsync<SpellListModel.SpellList>(baseUrl);
-
-                if (spellList == null)
-                {
-                    return NotFound();
-                }
-
-                return spellList;
-            }
-            catch (Exception ex)
-            {
-                // Log the exception or handle it appropriately
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
         }
-
+        
     }
 }

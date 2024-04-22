@@ -1,8 +1,8 @@
-﻿using static DndApi.Models.SpellData;
+﻿
 
 namespace DndApi.Models
 {
-    public class MonsterData
+    public class MonsterDataModel
     {
         public string? Index { get; set; }
         public string? Name { get; set; }
@@ -115,16 +115,5 @@ namespace DndApi.Models
         public string? Url { get; set; }
     }
 
-    public class MonsterListModel
-    {
-        public int? Count { get; set; }
-        public List<MonsterResult>? Results { get; set; }
-    }
 
-    public class MonsterResult
-    {
-        public string? Index { get; set; }
-        public string? Name { get; set; }
-        public string? Url { get; set; }
-    }
 }

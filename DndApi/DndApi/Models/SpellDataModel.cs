@@ -1,6 +1,6 @@
 ﻿namespace DndApi.Models
 {
-    public class SpellData
+    public class SpellDataModel
     {
 
 
@@ -91,6 +91,18 @@
         {
             public int? Count { get; set; }
             public List<Spell>? Results { get; set; }
+        }
+    }
+
+
+    public class MagicSchool
+    { 
+        public class MagicSchoolData
+        {
+            public string? Index { get; set; }
+            public string? Name { get; set; }
+            public string? Desc { get; set; }
+            public string? Url { get; set; }
         }
     }
 

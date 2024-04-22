@@ -152,24 +152,6 @@ namespace DndApi.Models
         public string? Url { get; set; }
     }
 
-
-    
-
-        /**
-        public class Classes
-        {
-            public string Index { get; set; }
-            public string Name { get; set; }
-            public string Url { get; set; }
-        }
-
-        public class ClassesList
-        {
-            public int Count { get; set; }
-            public List<Classes> Results { get; set; }
-        } **/
-
-
         public class ClassList
         {
             public int? Count { get; set; }
@@ -182,9 +164,7 @@ namespace DndApi.Models
             public string? Name { get; set; }
             public string? Url { get; set; }
         }
-
-    
-}
+    }
 
 
 

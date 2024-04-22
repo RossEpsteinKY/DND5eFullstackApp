@@ -15,15 +15,6 @@ namespace DndApi.Models
                 public int? Count { get; set; }
                 public List<GenericList>? Results { get; set; }
             }
-
-       /**     public class AbilityScoreResults
-            {
-                public string? Index { get; set; }
-                public string? Name { get; set; }
-                public string? Url { get; set; }
-            } **/
-
-
         }
         public class AbilityScoreDetails
         {
@@ -40,7 +31,6 @@ namespace DndApi.Models
             public class AlignmentsList
             {
                 public int? Count { get; set; }
-
                 public List<GenericList>? Results { get; set; }
             }
 
@@ -50,7 +40,6 @@ namespace DndApi.Models
                 public string? Name { get; set; }
                 public string? Abbreviation { get; set; }
                 public string? Desc { get; set; }
-
                 public string? Url { get; set; }
             }
         }
@@ -90,9 +79,8 @@ namespace DndApi.Models
                 public List<Class>? Classes { get; set; }
                 public List<Race>? Races { get; set; }
                 public string? Url { get; set; }
-
                 public ReferenceMaterials? Reference { get; set; }
-                //public static List<ReferenceMaterial>? referenceMaterial { get; set; }
+                
             }
 
             public class Race
@@ -120,11 +108,6 @@ namespace DndApi.Models
 
         public class Skills 
         {
-            public class SkillsList 
-            {
-                public int? count { get; set; }
-                public List<GenericList>? results { get; set; }
-            }
 
             public class Skill 
             { 
@@ -134,7 +117,6 @@ namespace DndApi.Models
                 public AbilityScoreModel? ability_score { get; set; }
                 public string? url { get; set; }
 
-
                 public class AbilityScoreModel
                 {
                     public string? index { get; set; }
@@ -142,10 +124,6 @@ namespace DndApi.Models
                     public string? url { get; set; }
                 }
             }
-
-        
         }
     }
-
- 
 }

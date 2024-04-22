@@ -22,10 +22,6 @@ namespace DndApi.Controllers
             {
                 return NotFound();
             }
-
-            //var content = await response.Content.ReadAsStringAsync();
-            //var monsterData = JsonConvert.DeserializeObject<MonsterData>(content);
-            
             
             var content = await response.Content.ReadAsStringAsync();
 
@@ -47,17 +43,11 @@ namespace DndApi.Controllers
                 return NotFound();
             }
 
-            //var content = await response.Content.ReadAsStringAsync();
-            //var monsterData = JsonConvert.DeserializeObject<MonsterData>(content);
-
-
             var content = await response.Content.ReadAsStringAsync();
 
             var traitData = JsonConvert.DeserializeObject<RaceTraitDetails>(content);
 
             return Ok(traitData);
-
-
         }
 
     }

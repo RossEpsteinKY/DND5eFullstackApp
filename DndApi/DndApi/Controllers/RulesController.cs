@@ -18,10 +18,6 @@ namespace DndApi.Controllers
         {
             try
             {
-                // URL from where you fetch the data
-
-
-                // Fetch data from the URL
                 var response = await _client.GetAsync($"{baseUrl}/conditions/{id}");
 
                 if (response == null)
@@ -39,7 +35,6 @@ namespace DndApi.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it appropriately
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
@@ -50,10 +45,7 @@ namespace DndApi.Controllers
         {
             try
             {
-                // URL from where you fetch the data
-
-
-                // Fetch data from the URL
+               
                 var response = await _client.GetAsync($"{baseUrl}/damage-types/{id}");
 
                 if (response == null)
@@ -65,13 +57,10 @@ namespace DndApi.Controllers
 
                 var damageTypesData = JsonConvert.DeserializeObject<RulesModel.DamageTypes.DamageTypeData>(content);
 
-
-
                 return Ok(damageTypesData);
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it appropriately
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }

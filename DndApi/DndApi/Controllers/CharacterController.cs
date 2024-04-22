@@ -23,9 +23,6 @@ namespace DndApi.Controllers
                     return NotFound();
                 }
 
-                //var content = await response.Content.ReadAsStringAsync();
-                //var monsterData = JsonConvert.DeserializeObject<MonsterData>(content);
-
                 var content = await response.Content.ReadAsStringAsync();
                 var abilityScoreDetails = JsonConvert.DeserializeObject<CharacterDataModel.AbilityScoreDetails>(content);
 
@@ -52,9 +49,6 @@ namespace DndApi.Controllers
                 {
                     return NotFound();
                 }
-
-                //var content = await response.Content.ReadAsStringAsync();
-                //var monsterData = JsonConvert.DeserializeObject<MonsterData>(content);
 
                 var content = await response.Content.ReadAsStringAsync();
                 var alignmentDetails = JsonConvert.DeserializeObject<CharacterDataModel.Alignments.AlignmentsDetails>(content);
@@ -103,8 +97,6 @@ namespace DndApi.Controllers
         {
             try
             {
-
-
                 var response = await _client.GetAsync($"{baseUrl}/proficiencies/{id}");
 
                 if (response == null)

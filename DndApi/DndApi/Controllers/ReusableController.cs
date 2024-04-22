@@ -16,10 +16,6 @@ namespace DndApi.Controllers
         {
             try
             {
-                // URL from where you fetch the data
-
-
-                // Fetch data from the URL
                 var conditionsList = await _client.GetFromJsonAsync<ReusableModels.GenericListData>($"{baseUrl}/{id}");
 
                 if (conditionsList == null)
@@ -31,7 +27,6 @@ namespace DndApi.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it appropriately
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }

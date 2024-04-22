@@ -134,6 +134,34 @@ namespace DndApi.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
+        [HttpGet]
+        [Route("/getMulticlassingDataForClass/{id}")]
+        public async Task<ActionResult<ClassesData.Multiclassing.MulticlassingData>> GetClassMulticlassingData(string id)
+        {
+
+            try
+            {
+                // URL from where you fetch the data
+
+                var response = await _client.GetAsync($"{baseUrl}/classes/{id}/multi-classing");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return NotFound();
+                }
+
+                var content = await response.Content.ReadAsStringAsync();
+                var multiclassingData = JsonConvert.DeserializeObject<ClassesData.Multiclassing.MulticlassingData>(content);
+
+                return Ok(multiclassingData);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it appropriately
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }
 

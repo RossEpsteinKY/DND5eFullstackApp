@@ -1,4 +1,5 @@
 ﻿using DndApi.Models;
+using static DndApi.Models.FeaturesModel;
 
 namespace DndApi.Models
 {
@@ -40,6 +41,22 @@ namespace DndApi.Models
                 public SpellcastingAbility? Spellcasting_Ability { get; set; }
                 public List<InfoItem>? Info { get; set; }
             }
+
+        }
+
+        public class Multiclassing 
+        { 
+            
+            public class MulticlassingData 
+            {
+                public List<Prerequisite>? Prerequisites { get; set; }
+                public List<Item>? Proficiencies { get; set; }
+                public List<ProficiencyChoice>? Proficiency_Choices { get; set; }
+
+            }
+
+
+
 
         }
     }

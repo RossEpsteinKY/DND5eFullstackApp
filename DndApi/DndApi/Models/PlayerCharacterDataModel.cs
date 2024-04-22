@@ -22,7 +22,9 @@ namespace DndApi.Models
             public List<Features>? Features { get; set; }
 
             //public string? testThis{ get; set; }
-            public Dictionary<dynamic, Dictionary<dynamic, dynamic>>? Class_Specific { get; set; }
+            //public Dictionary<dynamic, Dictionary<dynamic, dynamic>>? Class_Specific { get; set; }
+            
+            public Dictionary<string, dynamic> Class_specific { get; set; } 
 
 
 

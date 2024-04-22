@@ -17,6 +17,31 @@ namespace DndApi.Models
         public MultiClassing? Multi_Classing { get; set; }
         public List<Subclass>? Subclasses { get; set; }
         public string? Url { get; set; }
+
+        public class Spellcasting
+        {
+
+            public class SpellcastingAbility
+            {
+                public string? Index { get; set; }
+                public string? Name { get; set; }
+                public string? Url { get; set; }
+            }
+
+            public class InfoItem
+            {
+                public string? Name { get; set; }
+                public List<string>? Desc { get; set; }
+            }
+
+            public class SpellcastingData
+            {
+                public int? Level { get; set; }
+                public SpellcastingAbility? Spellcasting_Ability { get; set; }
+                public List<InfoItem>? Info { get; set; }
+            }
+
+        }
     }
 
     public class ProficiencyChoice
@@ -143,7 +168,9 @@ namespace DndApi.Models
             public string? Name { get; set; }
             public string? Url { get; set; }
         }
-    }
+
+    
+}
 
 
 
@@ -169,9 +196,9 @@ public class SubClassesData
         public string? Index { get; set; }
         public SubClassData? Class { get; set; }
         public string? Name { get; set; }
-        public string? SubclassFlavor { get; set; }
+        public string? Subclass_Flavor { get; set; }
         public List<string>? Desc { get; set; }
-        public string? SubclassLevels { get; set; }
+        public string? Subclass_Levels { get; set; }
         public string? Url { get; set; }
         public List<object>? Spells { get; set; }
     }
@@ -182,6 +209,8 @@ public class SubClassesData
         public string? Name { get; set; }
         public string? Url { get; set; }
     }
+
+ 
 
 }
 

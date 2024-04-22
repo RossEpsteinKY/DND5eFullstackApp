@@ -106,9 +106,39 @@ namespace DndApi.Controllers
                 // Log the exception or handle it appropriately
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
-        } 
+        }
+
+        [HttpGet]
+        [Route("/getSpellcastingDataForCLass/{id}")]
+        public async Task<ActionResult<ClassesData.Spellcasting.SpellcastingData>> GetClassSpellcastingData(string id)
+        {
+            try
+            {
+                // URL from where you fetch the data
+
+                var response = await _client.GetAsync($"{baseUrl}/classes/{id}/spellcasting");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return NotFound();
+                }
+
+                var content = await response.Content.ReadAsStringAsync();
+                var classSpellData = JsonConvert.DeserializeObject<ClassesData.Spellcasting.SpellcastingData>(content);
+
+                return Ok(classSpellData);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it appropriately
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }
+
+    
+
 
     
 

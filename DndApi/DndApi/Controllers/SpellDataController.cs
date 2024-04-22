@@ -33,31 +33,5 @@ namespace DndApi.Controllers
             return Ok(spellData);
 
         }
-
-        [HttpGet]
-        public async Task<ActionResult<SpellListModel.SpellList>> GetSpellsAsync()
-        {
-            try
-            {
-                // URL from where you fetch the data
-            
-
-                // Fetch data from the URL
-                var spellList = await _client.GetFromJsonAsync<SpellListModel.SpellList>(baseUrl);
-
-                if (spellList == null)
-                {
-                    return NotFound();
-                }
-
-                return spellList;
-            }
-            catch (Exception ex)
-            {
-                // Log the exception or handle it appropriately
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
-
     }
 }

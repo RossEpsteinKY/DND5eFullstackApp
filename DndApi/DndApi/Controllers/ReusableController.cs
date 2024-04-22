@@ -1,20 +1,18 @@
 ﻿using DndApi.Models;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
 namespace DndApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class RulesController(HttpClient client) : ControllerBase
+    public class ReusableController(HttpClient client) : ControllerBase
     {
         private HttpClient _client = client;
-        private string baseUrl = "https://www.dnd5eapi.co/api/";
+        private string baseUrl = "https://www.dnd5eapi.co/api";
 
-        
         [HttpGet]
-        [Route("/getCondition/{id}")]
-        public async Task<object> GetConditionDetails(string id)
+        [Route("/dynamicGetAll/{id}")]
+        public async Task<ActionResult<ReusableModels.GenericListData>> GetAllClasses(string id)
         {
             try
             {
@@ -22,20 +20,14 @@ namespace DndApi.Controllers
 
 
                 // Fetch data from the URL
-                var response = await _client.GetAsync($"{baseUrl}/conditions/{id}");
+                var conditionsList = await _client.GetFromJsonAsync<ReusableModels.GenericListData>($"{baseUrl}/{id}");
 
-                if (response == null)
+                if (conditionsList == null)
                 {
                     return NotFound();
                 }
 
-                var content = await response.Content.ReadAsStringAsync();
-    
-                var condition = JsonConvert.DeserializeObject<RulesModel.Conditions.Condition>(content);
-
-
-                
-                return Ok(condition);
+                return conditionsList;
             }
             catch (Exception ex)
             {

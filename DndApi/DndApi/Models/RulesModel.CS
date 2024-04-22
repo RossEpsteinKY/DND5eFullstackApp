@@ -4,14 +4,21 @@ namespace DndApi.Models
 {
     public class RulesModel
     {
-        public class Conditions
-        {
 
-            public class ConditionsList
+        public class DamageTypes 
+        {
+            public class DamageTypesList
             {
                 public int? Count { get; set; }
                 public List<GenericList> Results { get; set; }
             }
+
+        }
+
+        public class Conditions
+        {
+
+ 
 
             public class Condition
             { 

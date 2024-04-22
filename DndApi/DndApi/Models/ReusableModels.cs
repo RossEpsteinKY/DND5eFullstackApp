@@ -9,5 +9,10 @@
             public string? Url { get; set; }
 
         }
+        public class GenericListData
+        {
+            public int? Count { get; set; }
+            public List<GenericList>? Results { get; set; }
+        }
     }
 }

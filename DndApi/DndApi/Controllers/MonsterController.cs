@@ -24,7 +24,7 @@ namespace DndApi.Controllers
             }
 
             var content = await response.Content.ReadAsStringAsync();
-            var monsterData = JsonConvert.DeserializeObject<MonsterData>(content);
+            var monsterData = JsonConvert.DeserializeObject<MonsterDataModel>(content);
 
             return Ok(monsterData);
 

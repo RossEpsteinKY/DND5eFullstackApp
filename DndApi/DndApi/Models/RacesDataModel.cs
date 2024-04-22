@@ -2,7 +2,7 @@
 
 namespace DndApi.Models
 {
-    public class RacesData
+    public class RacesDataModel
     {
       
     }

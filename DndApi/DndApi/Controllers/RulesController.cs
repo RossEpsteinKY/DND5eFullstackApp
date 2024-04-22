@@ -81,7 +81,33 @@ namespace DndApi.Controllers
 
                 var content = await response.Content.ReadAsStringAsync();
 
-                var ruleByIndex = JsonConvert.DeserializeObject<RulesModel.RuleSectionByIndex>(content);
+                var ruleSectionByIndex = JsonConvert.DeserializeObject<RulesModel.RuleSectionByIndex>(content);
+
+                return Ok(ruleSectionByIndex);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
+        [HttpGet]
+        [Route("/getRuleByIndex/{id}")]
+        public async Task<object> GetRuleByIndex(string id)
+        {
+            try
+            {
+
+                var response = await _client.GetAsync($"{baseUrl}/rules/{id}");
+
+                if (response == null)
+                {
+                    return NotFound();
+                }
+
+                var content = await response.Content.ReadAsStringAsync();
+
+                var ruleByIndex = JsonConvert.DeserializeObject<RulesModel.RuleByIndex>(content);
 
                 return Ok(ruleByIndex);
             }

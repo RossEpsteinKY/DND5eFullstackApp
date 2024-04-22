@@ -32,12 +32,21 @@ namespace DndApi.Models
             }
         }
 
-        internal class RuleSectionByIndex
+        public class RuleSectionByIndex
         {
             public string? Index { get; set;}
             public string? Name { get; set;}
             public string? Desc { get; set;}
             public string? Url { get; set;}
+        }
+
+        public class RuleByIndex
+        {
+            public string? Index { get; set; }
+            public string? Name { get; set; }
+            public string? Desc { get; set; }
+            public string? Url { get; set; }
+            public List<GenericList>? subsections { get; set; }
         }
     }
 }

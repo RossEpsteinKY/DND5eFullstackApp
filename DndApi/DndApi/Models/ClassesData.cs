@@ -54,11 +54,8 @@ namespace DndApi.Models
                 public List<ProficiencyChoice>? Proficiency_Choices { get; set; }
 
             }
-
-
-
-
         }
+
     }
 
     public class ProficiencyChoice

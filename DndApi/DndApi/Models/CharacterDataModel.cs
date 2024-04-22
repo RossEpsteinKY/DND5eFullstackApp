@@ -117,6 +117,17 @@ namespace DndApi.Models
 
 
         }
+
+        public class Skills 
+        {
+            public class SkillsList 
+            { 
+                public List<GenericList>? results { get; set; }
+
+                public int? count { get; set; }
+            }
+        
+        }
     }
 
  

@@ -12,6 +12,8 @@ namespace DndApi.Controllers
     {
         private HttpClient _client = client;
         private string baseUrl = "https://www.dnd5eapi.co/api";
+        
+        
         /**
             [HttpGet]
             [Route("/getAllAbilityScores")]

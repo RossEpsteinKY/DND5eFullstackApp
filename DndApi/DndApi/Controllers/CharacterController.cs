@@ -215,6 +215,60 @@ namespace DndApi.Controllers
             }
 
         }
+
+        [HttpGet]
+        [Route("/getSkills")]
+        public async Task<ActionResult<CharacterDataModel.Skills.SkillsList>> GetSkillsList()
+        {
+            try
+            {
+
+                var skillsList = await _client.GetFromJsonAsync<CharacterDataModel.Skills.SkillsList>($"{baseUrl}/skills");
+                if (skillsList == null)
+                {
+                    return NotFound();
+                }
+
+                return skillsList;
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("/getSkill/{id}")]
+        public async Task<object> GetSkill(string id)
+        {
+            try
+            {
+
+                var response = await _client.GetAsync($"{baseUrl}/skills/{id}");
+
+                if (response == null)
+                {
+                    return NotFound();
+                }
+
+                var content = await response.Content.ReadAsStringAsync();
+
+
+                var skillDetails = JsonConvert.DeserializeObject<CharacterDataModel.Skills.Skill>(content);
+
+
+                return Ok(skillDetails);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
+
     }
 }
 

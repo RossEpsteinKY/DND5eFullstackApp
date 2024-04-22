@@ -64,5 +64,31 @@ namespace DndApi.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
+        [HttpGet]
+        [Route("/getRuleByIndex/{id}")]
+        public async Task<object> GetRuleByIndex(string id)
+        {
+            try
+            {
+
+                var response = await _client.GetAsync($"{baseUrl}/rule-sections/{id}");
+
+                if (response == null)
+                {
+                    return NotFound();
+                }
+
+                var content = await response.Content.ReadAsStringAsync();
+
+                var ruleByIndex = JsonConvert.DeserializeObject<RulesModel.RuleByIndex>(content);
+
+                return Ok(ruleByIndex);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }

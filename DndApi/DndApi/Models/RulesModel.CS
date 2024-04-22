@@ -32,5 +32,12 @@ namespace DndApi.Models
             }
         }
 
+        internal class RuleByIndex
+        {
+            public string? Index { get; set;}
+            public string? Name { get; set;}
+            public string? Desc { get; set;}
+            public string? Url { get; set;}
+        }
     }
 }

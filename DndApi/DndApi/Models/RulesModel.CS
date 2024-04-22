@@ -5,12 +5,15 @@ namespace DndApi.Models
     public class RulesModel
     {
 
-        public class DamageTypes 
+        public class DamageTypes
         {
-            public class DamageTypesList
+            public class DamageTypeData
             {
-                public int? Count { get; set; }
-                public List<GenericList> Results { get; set; }
+
+                public string? Index { get; set; }
+                public string? Name { get; set; }
+                public string[]? Desc { get; set; }
+                public string? Url { get; set; }
             }
 
         }

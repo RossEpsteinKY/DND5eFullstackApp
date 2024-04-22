@@ -32,7 +32,7 @@ namespace DndApi.Models
             }
         }
 
-        internal class RuleByIndex
+        internal class RuleSectionByIndex
         {
             public string? Index { get; set;}
             public string? Name { get; set;}

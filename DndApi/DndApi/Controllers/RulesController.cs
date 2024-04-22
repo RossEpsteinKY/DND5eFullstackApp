@@ -66,8 +66,8 @@ namespace DndApi.Controllers
         }
 
         [HttpGet]
-        [Route("/getRuleByIndex/{id}")]
-        public async Task<object> GetRuleByIndex(string id)
+        [Route("/getRuleSectionByIndex/{id}")]
+        public async Task<object> GetRuleSectionByIndex(string id)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace DndApi.Controllers
 
                 var content = await response.Content.ReadAsStringAsync();
 
-                var ruleByIndex = JsonConvert.DeserializeObject<RulesModel.RuleByIndex>(content);
+                var ruleByIndex = JsonConvert.DeserializeObject<RulesModel.RuleSectionByIndex>(content);
 
                 return Ok(ruleByIndex);
             }

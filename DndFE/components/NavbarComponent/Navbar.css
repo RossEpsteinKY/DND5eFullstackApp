@@ -1,0 +1,15 @@
+.dndHeader {
+    font-size: 1.4rem;
+    color: white;
+    font-family: "Ringbearer";
+    text-shadow: 2px 0 3px #145cd7;
+    text-shadow: 3px 0 1px black;
+}
+
+.dndFont {
+    font-family: "Ringbearer";
+}
+
+.app-link {
+    color: #61dafb;
+}

@@ -5,7 +5,7 @@ export default function PageLayout ({ children, ...props}) {
     return (
         <>
             <NavbarComponent />
-            <title>dnd The Mad Skald | Poetic Eddas for the Modern Boozer</title>
+            <title>D&D 5th Ed Helper</title>
                 {/* MAIN CONTENT */}
                 <div className="py-4">
                     {children}

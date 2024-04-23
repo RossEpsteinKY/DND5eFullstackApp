@@ -9,9 +9,19 @@
   src: url("/fonts/RINGM___.TTF");
 }
 
+@font-face {
+  font-family: "Quentin";
+  src: url("/fonts/Quentincaps-owxKz.ttf");
+}
+
+@font-face {
+  font-family: "DUNGRG";
+  src: url("/fonts/DUNGRG__.TTF");
+}
+
 html,
 body {
-  background-color: #a4b4c4 !important;
+  background-color: #bababa !important;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -37,12 +47,20 @@ a {
   }
 }
 
-.dndHeader {
+.dndNavHeader {
   font-size: 1.4rem;
   color: white;
-  font-family: "Ringbearer";
+  font-family: "Quentin";
   text-shadow: 2px 0 3px #145cd7;
   text-shadow: 3px 0 1px black;
+}
+
+.dndHeader {
+  font-size: 1.4rem;
+  color: #000000;
+  font-family: "Quentin";
+  /*text-shadow: 2px 0 3px #145cd7;*/
+  /*text-shadow: 3px 0 1px black;*/
 }
 
 .dndFont {
@@ -84,7 +102,7 @@ a {
 }
 
 .bg-setter {
-  background-color: #a4b4c4 !important;
+  background-color: #bababa !important;
 }
 
 .pressFont {

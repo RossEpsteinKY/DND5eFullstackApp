@@ -30,7 +30,7 @@ function NavbarComponent({  ...props }) {
     
     const navigation = [
         { name: 'Home', href: '/', current: true },
-        { name: 'Galleries', href: '/gallery', current: false },
+        { name: 'Classes', href: '/classes', current: false },
 
 
     ]
@@ -43,14 +43,14 @@ function NavbarComponent({  ...props }) {
     return (
 
         <>
-            <Disclosure as="nav" className="bg-gray-800">
+            <Disclosure as="nav" className="bg-neutral-900">
                 {({ open }) => (
                     <>
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="flex items-center justify-between h-16">
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">
-                                        <h1 className='dndHeader'>5th Ed D&D Helper</h1>
+                                        <h1 className='dndNavHeader'>5th Ed D&D Helper</h1>
                                     </div>
                                     <div className="hidden  links sm:block sm:ml-6">
                                         <div className="flex space-x-4">
@@ -75,18 +75,6 @@ function NavbarComponent({  ...props }) {
                                             {/*                                                                      <h1>{nav.name}</h1>  */}
                                             {/* //                                                                     className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" */}
                                             {/*                                                                 ))} */}
-
-                                            <div
-
-                                                className="text-gray-300 px-3 py-2 rounded-md text-sm font-medium m-lg-auto justify-content-end"
-                                            >
-                                                <a className="text-white-300 hover:bg-gray-500 p-2" href="https://www.facebook.com/dndTheMad" ><FontAwesomeIcon icon={faFacebook}  /></a>
-                                                <a className="text-white-300 hover:bg-gray-500 p-2" href="https://www.tiktok.com/@dndthemad" ><FontAwesomeIcon icon={faTiktok}  /></a>
-                                                <a className="text-white-300 hover:bg-gray-500 p-2" href="https://www.youtube.com/channel/UCefE81r5B55wheMVmaxGPfA" ><FontAwesomeIcon icon={faYoutube}  /></a>
-                                                <a className="text-white-300 hover:bg-gray-500 p-2" href="https://www.instagram.com/dndthemad/"><FontAwesomeIcon icon={faInstagram}  /></a>
-
-                                            </div>
-
 
                                         </div>
 

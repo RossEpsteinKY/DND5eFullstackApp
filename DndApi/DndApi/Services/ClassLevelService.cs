@@ -37,7 +37,12 @@ namespace DnDAPI.Services
 
                 var content = await response.Content.ReadAsStringAsync();
 
+        
+
+
                 var classLevelData = JsonConvert.DeserializeObject<ClassLevel>(content);
+
+                
 
                 return (classLevelData);
             }

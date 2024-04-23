@@ -1,5 +1,11 @@
-﻿using Microsoft.OpenApi.Any;
+﻿using Castle.Components.DictionaryAdapter;
+using Elasticsearch.Net;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.OpenApi.Any;
+using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Runtime.Serialization;
 using static DndApi.Models.ClassesData;
 using static DndApi.Models.ReusableModels;
 
@@ -21,10 +27,34 @@ namespace DndApi.Models
 
             public List<Features>? Features { get; set; }
 
+            public ClassSpecific? Class_Specific { get; set; }
+
+            public class ClassSpecific
+            {
+                [DataMember(Name = "class_specific.sneak_attack", EmitDefaultValue = false)]
+                public Dictionary<string,dynamic>? sneak_attack { get; set; }
+            }
+
+            public class SneakAttack 
+            { 
+
+                public int? Dice_Count { get; set; }
+                public int? Dice_Value { get; set; }
+            }
+
+
+
             //public string? testThis{ get; set; }
             //public Dictionary<dynamic, Dictionary<dynamic, dynamic>>? Class_Specific { get; set; }
-            
-            public Dictionary<string, dynamic> Class_specific { get; set; } 
+
+
+
+            //public string? testThis{ get; set; }
+            //public Dictionary<dynamic, Dictionary<dynamic, dynamic>>? Class_Specific { get; set; }
+
+
+
+
 
 
 

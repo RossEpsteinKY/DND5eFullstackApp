@@ -1,27 +1,52 @@
-﻿using DndApi.Models;
+﻿using System.Dynamic;
+using DndApi.Models;
+using DnDAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System.Dynamic;
-
-using static DndApi.Models.PlayerCharacterDataModel;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DndApi.Controllers
 {
-
     [ApiController]
     [Route("[controller]")]
-    public class PlayerCharacterController(HttpClient client) : ControllerBase
+    public class PlayerCharacterController : ControllerBase
     {
-        private HttpClient _client = client;
-        private string baseUrl = "https://www.dnd5eapi.co/api/";
+        private readonly ClassLevelService _classLevelService;
+        private readonly HttpClient _client;
+
+        public PlayerCharacterController(HttpClient client, ClassLevelService dndClassLevelService)
+        {
+            _client = client;
+            _classLevelService = dndClassLevelService;
+        }
 
         [HttpGet]
-        [Route("/testingTheReturn/{id}")]
-        public async Task<object> GetClassData(string id)
+        [Route(("/getClassAndLevelData/{className}/levels/{classLevel}"))]
+        public async Task<IActionResult> GetClassLevel(string className, int classLevel)
         {
+            try
+            {
+                var dndClassLevelResponseObject = await _classLevelService.GetClassLevel(
+                    className,
+                    classLevel
+                );
 
-            var response = await _client.GetAsync($"{baseUrl}/classes/{id}");
+                var dndClassLevel = dndClassLevelResponseObject;
+
+                string json = JsonConvert.SerializeObject(dndClassLevel);
+
+                return Ok(dndClassLevel);
+            }
+            catch (HttpRequestException)
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet]
+        [Route(("/getClassAndLevelFeatures/{className}/levels/{classLevel}"))]
+        public async Task<IActionResult> GetClassLevelFeatures(string className, int classLevel)
+        {
+            var response = await _client.GetAsync($"https://www.dnd5eapi.co/api/classes/{className}/levels/{classLevel}/features");
 
             if (!response.IsSuccessStatusCode)
             {
@@ -30,13 +55,9 @@ namespace DndApi.Controllers
 
             var content = await response.Content.ReadAsStringAsync();
 
-            var classData = JsonConvert.DeserializeObject<object>(content);
+            var featuresData = JsonConvert.DeserializeObject<PlayerCharacterDataModel.Features>(content);
 
-            var formattedData = JsonConvert.DeserializeObject<dynamic>(content)!;
-
-            return Ok(formattedData);
-
+            return Ok(featuresData);
         }
-
     }
 }

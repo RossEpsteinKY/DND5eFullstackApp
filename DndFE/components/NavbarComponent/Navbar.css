@@ -1,0 +1,15 @@
+.dndHeader {
+    font-size: 1.4rem;
+    color: #000000;
+    font-family: "Quentin";
+    text-shadow: 2px 0 3px #145cd7;
+    text-shadow: 3px 0 1px black;
+}
+
+.dndFont {
+    font-family: "Quentin";
+}
+
+.app-link {
+    color: #61dafb;
+}

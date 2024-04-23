@@ -32,3 +32,5 @@ D:\code\FullStackDnd\DndApi\DndApi\obj\Debug\net8.0\refint\DndApi.dll
 D:\code\FullStackDnd\DndApi\DndApi\obj\Debug\net8.0\DndApi.pdb
 D:\code\FullStackDnd\DndApi\DndApi\obj\Debug\net8.0\DndApi.genruntimeconfig.cache
 D:\code\FullStackDnd\DndApi\DndApi\obj\Debug\net8.0\ref\DndApi.dll
+D:\code\FullStackDnd\DndApi\DndApi\bin\Debug\net8.0\Castle.Core.dll
+D:\code\FullStackDnd\DndApi\DndApi\bin\Debug\net8.0\Elasticsearch.Net.dll

@@ -100,6 +100,17 @@ namespace DndApi.Models
 
         }
 
+        public class Features
+        {
+            public int? count { get; set; }
+            public List<FeaturesList>? results { get; set; }
+        }
+        public class FeaturesList
+        {
+            public string? Index { get; set; }
+            public string? Name { get; set; }
+            public string? Url { get; set; }
+        }
     }
 
     public class Features

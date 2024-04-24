@@ -220,10 +220,37 @@ function DisplayClassPage(props: any) {
                                     {/*    </li>*/}
                                     {/*))}*/}
                                 </ul>
-
-
                             </div>
                         </div>
+
+
+                        {classData?.subclasses.length >= 1 ? (
+                            <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+
+                                <div className="sm:col-span-2">
+                                    <div className="font-medium text-gray-900 dndHeader">
+                                        Subclasses
+                                    </div>
+                                    <div className="text-gray-700 sm:col-span-2">
+
+                                        <div className="font-medium text-gray-900">
+                                            <i>Possible Subclasses:</i>
+                                        </div>
+                                        <ul className="pt-3">
+                                            {classData?.subclasses.map((subclass: any,) => (
+
+
+                                                <li className="w-full pt-8 lg:pt-0">
+                                                    <b>{subclass.name}</b>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : ('')}
+
+
 
                     </dl>
                 </div>

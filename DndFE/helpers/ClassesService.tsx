@@ -22,13 +22,19 @@ export class ClassesService extends HTTPBaseService {
 
     }
 
-    public getGalleryImages = (galleryId:string) => {
-        // console.log(`tacos are: ${process.env.NEXT_PUBLIC_BASE_API_URL}/gallery/findGallery/${galleryId}`);
-        return fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/gallery/findGallery/${galleryId}`)
+    public getClassData = (id: any) => {
+
+        // console.log(`${process.env.NEXT_PUBLIC_BASE_API_URL}/gallery/getGalleries`);async getClasses() {
+        return fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/getClassData/${id}`)
             .then(response => {
                 // @ts-ignore
                 return response?.json() || response?.redirect || {};
             });
-  }
+
+    }
+
+
+
+
 
 }

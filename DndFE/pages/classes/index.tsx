@@ -26,11 +26,18 @@ function Classes(props: any) {
                             {props.classes?.map((_class: any,) => (
                                 <div key={_class?.index}>
 
+                                    <Link
+                                        href={{
+                                            pathname: `classes/${_class?.index}`,
 
+                                        }}
+
+                                    >
                                     <li
                                         key={_class?.index}
                                         className="col-span-1 flex flex-col divide-y divide-gray-200  bg-white text-center shadow"
                                     >
+
 
                                         <div className="flex flex- flex-col p-2">
                                             {/*<img className="mx-auto h-60 w-60 flex-shrink-0 " src={album.img} alt="" />*/}
@@ -45,7 +52,7 @@ function Classes(props: any) {
                                         </div>
 
                                     </li>
-
+                                    </Link>
                                 </div>
 
                             ))}

@@ -87,7 +87,7 @@ function DisplayClassPage(props: any) {
                         <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
 
                             <div className="sm:col-span-2">
-                                <div className="font-medium text-gray-900">
+                                <div className="font-medium text-gray-900 dndHeader">
                                     Class Name
                                 </div>
                             <div className="text-gray-700 sm:col-span-2">{classData?.name}</div></div>
@@ -96,7 +96,7 @@ function DisplayClassPage(props: any) {
                         <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
 
                             <div className="sm:col-span-2">
-                                <div className="font-medium text-gray-900">
+                                <div className="font-medium text-gray-900 dndHeader">
                                    Hit Dice
                                 </div>
                                 <div className="text-gray-700 sm:col-span-2">1d{classData?.hit_Die} Per Level</div></div>
@@ -105,7 +105,7 @@ function DisplayClassPage(props: any) {
                         <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
 
                             <div className="sm:col-span-2">
-                                <div className="font-medium text-gray-900">
+                                <div className="font-medium text-gray-900 dndHeader">
                                     Proficiency Choices
                                 </div>
                                 <div className="text-gray-700 sm:col-span-2">
@@ -126,7 +126,7 @@ function DisplayClassPage(props: any) {
                         <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
 
                             <div className="sm:col-span-2">
-                                <div className="font-medium text-gray-900">
+                                <div className="font-medium text-gray-900 dndHeader">
                                     Starting Proficiencies
                                 </div>
                                 <div className="text-gray-700 sm:col-span-2">
@@ -147,7 +147,7 @@ function DisplayClassPage(props: any) {
                         <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
 
                             <div className="sm:col-span-2">
-                                <div className="font-medium text-gray-900">
+                                <div className="font-medium text-gray-900 dndHeader">
                                     Starting Equipment
                                 </div>
                                 <div className="text-gray-700 sm:col-span-2">
@@ -168,6 +168,62 @@ function DisplayClassPage(props: any) {
                             </div>
                         </div>
 
+
+                        <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+
+                            <div className="sm:col-span-2">
+                                <div className="dndHeader font-medium text-gray-900">
+                                    Multiclassing
+                                </div>
+
+                                <ul className="lg:columns-1 pt-3">
+                                    <div className=" text-gray-900 ">
+                                        <b>Ability Scores Required:</b>
+                                    </div>
+
+                                    {classData?.multi_Classing.prerequisites?.length >= 1?(
+                                        <div>
+                                            {classData?.multi_Classing.prerequisites?.map((prereq: any,) => (
+
+
+                                                <li className="w-full pt-8 lg:pt-2">
+                                                    {prereq.minimum_Score} {prereq.ability_Score.name} required to multiclass.
+                                                </li>
+                                            ))}
+                                        </div>
+                                    ) : <div><i>No Required Minimum Ability Scores</i></div>}
+
+                                </ul>
+                                <br/>
+                                <ul className="lg:columns-1 pt-3">
+                                    <div className=" text-gray-900 ">
+                                        <b>Proficiencies Required:</b>
+                                    </div>
+
+                                    {classData?.multi_Classing.proficiencies?.length >= 1?(
+                                        <div>
+                                        {classData?.multi_Classing.proficiencies.map((prof: any,) => (
+
+
+                                            <li className="w-full pt-8 lg:pt-2">
+                                                Proficiency with <b><i>{prof.name}</i></b> required to multiclass.
+                                            </li>
+                                        ))}
+                                        </div>
+                                    ) : <div><i>No Required Proficiencies</i></div>}
+
+                                    {/*{classData?.multi_Classing.proficiencies.map((prof: any,) => (*/}
+
+
+                                    {/*    <li className="w-full pt-8 lg:pt-2">*/}
+                                    {/*        Proficiency with <b><i>{prof.name}</i></b> required to multiclass.*/}
+                                    {/*    </li>*/}
+                                    {/*))}*/}
+                                </ul>
+
+
+                            </div>
+                        </div>
 
                     </dl>
                 </div>

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import {useRouter} from "next/router";
 import {ClassesService} from "../../helpers/ClassesService";
 import {GalleryService} from "../../helpers/GalleryService";
+import {className} from "postcss-selector-parser";
 
 
 
@@ -20,37 +21,30 @@ function Classes(props: any) {
 
                         </div>
                         <ul
-                            className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8"
+                            className="space-y-8 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-5 lg:gap-x-8"
                         >
                             {props.classes?.map((_class: any,) => (
                                 <div key={_class?.index}>
 
 
-                                        <li key={_class?.index}>
-                                            <div className="space-y-4">
-                                                <div className="aspect-w-3 aspect-h-2">
-                                                    <Link
-                                                        href={{
-                                                            // pathname: `gallery/${gallery.gallery_short_name}/displaygallery/${gallery.gallery_short_name}/display`,
-                                                             pathname: `/`,
-                                                            query: {
-                                                                class_name: _class?.name,
-                                                            }
-                                                        }}
-                                                    >
-                                                    <h1>{_class?.name}</h1>
-                                                    </Link>
+                                    <li
+                                        key={_class?.index}
+                                        className="col-span-1 flex flex-col divide-y divide-gray-200  bg-white text-center shadow"
+                                    >
 
-                                                </div>
+                                        <div className="flex flex- flex-col p-2">
+                                            {/*<img className="mx-auto h-60 w-60 flex-shrink-0 " src={album.img} alt="" />*/}
+                                            <h3 className=" mt-6 text-sm font-medium text-gray-900">{_class?.className}</h3>
+                                            <img className="mx-auto h-60 w-60 flex-shrink-0 " src={_class?.img} alt="" />
+                                            <div
 
-                                                <div className="space-y-2">
-                                                    <div className="text-lg text-center leading-6 font-medium dndFont space-y-1">
-                                                        {/*<h3>{gallery.gallery_name}</h3>*/}
-                                                        {/*<p className="text-indigo-600">{person.role}</p>*/}
-                                                    </div>
-                                                </div>
+                                                className="text-gray-500 px-3 py-2 rounded-md text-3xl font-lg m-lg-auto justify-content-end"
+                                            >
                                             </div>
-                                        </li>
+
+                                        </div>
+
+                                    </li>
 
                                 </div>
 
@@ -64,12 +58,19 @@ function Classes(props: any) {
 }
 
 export async function getServerSideProps(context?:any, token?: string) {
-    // let randomToken = uuidv4();
-    //let randomToken = Math.floor(Math.random() * 1000000000000000000000).toString();
     const classesService: ClassesService = ClassesService.getInstance();
     const classes = await classesService.getClasses();
 
     console.log(classes);
+
+
+    //classes.results?.push(className(className));
+    classes?.results.map((_class: any,) => (
+        _class.className = _class.index.toUpperCase(),
+        _class.img  = `/images/class_icons/${_class.className}.svg`
+    ))
+
+    //console.log(classes);
     return {
         props: {
             classes:classes?.results,

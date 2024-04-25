@@ -15,7 +15,7 @@ function Classes(props: any) {
 
             <div className="bg-setter">
                 <div className="mx-auto px-4 max-w-7xl sm:px-6 lg:px-8 pt-2">
-                    <h2 className="text-3xl dndHeader text-center tracking-tight sm:text-4xl">Galleries</h2>
+                    <h2 className="text-3xl dndHeader text-center tracking-tight sm:text-4xl">Classes</h2>
                     <div className="space-y-12">
                         <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
 

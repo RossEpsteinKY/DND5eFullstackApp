@@ -24,70 +24,13 @@ function DisplayClassPage(props: any) {
         <>
             <section className="overflow-hidden text-gray-700  justify-center items-center ">
                         <h2 className="text-3xl dndHeader text-center tracking-tight sm:text-4xl pb-3">  {classData?.name}</h2>
-                {/*<div className="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">*/}
-                {/*    <div className="flex flex-wrap -m-1 md:-m-2">*/}
 
-                {/*        /!*<div className="flow-root border center">*!/*/}
-                {/*        /!*    <dl className="-my-1 divide-y divide-gray-100 text-sm">*!/*/}
-                {/*        /!*        <div className="center grid grid-cols-4 gap-1 py-3 even:bg-gray-50 sm:grid-cols-8 sm:gap-8">*!/*/}
-                {/*        /!*            <dt className="font-medium text-gray-900">Class Name:</dt>*!/*/}
-                {/*        /!*            <dd className="text-gray-700 sm:col-span-2">{classData?.name}</dd>*!/*/}
-                {/*        /!*        </div>*!/*/}
-                {/*        */}
-                {/*        /!*        <div className="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">*!/*/}
-                {/*        /!*            <dt className="font-medium text-gray-900">Hit Dice: </dt>*!/*/}
-                {/*        /!*            <dd className="text-gray-700 sm:col-span-2">1d{classData?.hit_Die} Per Level</dd>*!/*/}
-                {/*        /!*        </div>*!/*/}
-                {/*        */}
-                {/*        /!*        <div className="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">*!/*/}
-                {/*        /!*            <dt className="font-medium text-gray-900">Starting Proficiency Choices:</dt>*!/*/}
-                {/*        /!*            <dd className="text-gray-700 sm:col-span-2">*!/*/}
-                {/*        /!*                {classData?.proficiency_Choices[0].desc}*!/*/}
-                {/*        /!*                {classData?.proficiency_Choices[0].from.options.map((choice: any,) => (*!/*/}
-                {/*        */}
-                {/*        /!*                    <li>*!/*/}
-                {/*        /!*                        {choice.item.name}*!/*/}
-                {/*        /!*                    </li>*!/*/}
-                {/*        /!*                ))}*!/*/}
-                {/*        /!*            </dd>*!/*/}
-                {/*        /!*        </div>*!/*/}
-                {/*        */}
-                {/*        /!*        <div className="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">*!/*/}
-                {/*        /!*            <dt className="font-medium text-gray-900">Starting Proficiencies:</dt>*!/*/}
-                {/*        /!*            <dd className="text-gray-700 sm:col-span-2">*!/*/}
-                {/*        /!*                {classData?.proficiencies.map((prof: any,) => (*!/*/}
-                {/*        */}
-                {/*        /!*                    <li>*!/*/}
-                {/*        /!*                        {prof.name}*!/*/}
-                {/*        /!*                    </li>*!/*/}
-                {/*        /!*                ))}*!/*/}
-                {/*        /!*            </dd>*!/*/}
-                {/*        /!*        </div>*!/*/}
-                {/*        */}
-                {/*        /!*        <div className="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">*!/*/}
-                {/*        /!*            <dt className="font-medium text-gray-900">Saving Throws</dt>*!/*/}
-                {/*        /!*            <dd className="text-gray-700 sm:col-span-2">*!/*/}
-                {/*        /!*                <dd className="text-gray-700 sm:col-span-2">*!/*/}
-                {/*        /!*                    {classData?.saving_Throws.map((save: any,) => (*!/*/}
-                {/*        */}
-                {/*        /!*                        <li>*!/*/}
-                {/*        /!*                            {save.name}*!/*/}
-                {/*        /!*                        </li>*!/*/}
-                {/*        /!*                    ))}*!/*/}
-                {/*        /!*                </dd>*!/*/}
-                {/*        /!*            </dd>*!/*/}
-                {/*        /!*        </div>*!/*/}
-                {/*        /!*    </dl>*!/*/}
-                {/*        /!*</div>*!/*/}
-
-                {/*    </div>*/}
-                {/*</div>*/}
                 <div className="flex justify-center items-center flow-root rounded-lg border border-gray-100 py-3 ml-10 mr-10 shadow-sm">
                     <dl className="-my-3 divide-y divide-gray-100 text-sm">
                         <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
 
                             <div className="sm:col-span-2">
-                                <div className="font-medium text-gray-900 dndHeader">
+                                <div className="font-medium text-gray-900 dragonHeader">
                                     Class Name
                                 </div>
                             <div className="text-gray-700 sm:col-span-2">{classData?.name}</div></div>
@@ -96,16 +39,16 @@ function DisplayClassPage(props: any) {
                         <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
 
                             <div className="sm:col-span-2">
-                                <div className="font-medium text-gray-900 dndHeader">
+                                <div className="font-medium text-gray-900 dragonHeader">
                                    Hit Dice
                                 </div>
-                                <div className="text-gray-700 sm:col-span-2">1d{classData?.hit_Die} Per Level</div></div>
+                                <div className="text-gray-700 sm:col-span-2 ">1d{classData?.hit_Die} Per Level</div></div>
                         </div>
 
                         <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
 
                             <div className="sm:col-span-2">
-                                <div className="font-medium text-gray-900 dndHeader">
+                                <div className="font-medium text-gray-900 dragonHeader">
                                     Proficiency Choices
                                 </div>
                                 <div className="text-gray-700 sm:col-span-2">
@@ -126,7 +69,7 @@ function DisplayClassPage(props: any) {
                         <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
 
                             <div className="sm:col-span-2">
-                                <div className="font-medium text-gray-900 dndHeader">
+                                <div className="font-medium text-gray-900 dragonHeader">
                                     Starting Proficiencies
                                 </div>
                                 <div className="text-gray-700 sm:col-span-2">
@@ -147,7 +90,7 @@ function DisplayClassPage(props: any) {
                         <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
 
                             <div className="sm:col-span-2">
-                                <div className="font-medium text-gray-900 dndHeader">
+                                <div className="font-medium text-gray-900 dragonHeader">
                                     Starting Equipment
                                 </div>
                                 <div className="text-gray-700 sm:col-span-2">
@@ -172,7 +115,7 @@ function DisplayClassPage(props: any) {
                         <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
 
                             <div className="sm:col-span-2">
-                                <div className="dndHeader font-medium text-gray-900">
+                                <div className="dragonHeader font-medium text-gray-900">
                                     Multiclassing
                                 </div>
 
@@ -228,7 +171,7 @@ function DisplayClassPage(props: any) {
                             <div className="text-center  gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
 
                                 <div className="sm:col-span-2">
-                                    <div className="font-medium text-gray-900 dndHeader">
+                                    <div className="font-medium text-gray-900 dragonHeader">
                                         Subclasses
                                     </div>
                                     <div className="text-gray-700 sm:col-span-2">
@@ -236,11 +179,11 @@ function DisplayClassPage(props: any) {
                                         <div className="font-medium text-gray-900">
                                             <i>Possible Subclasses:</i>
                                         </div>
-                                        <ul className="pt-3">
+                                        <ul className="pt-1">
                                             {classData?.subclasses.map((subclass: any,) => (
 
 
-                                                <li className="w-full pt-8 lg:pt-0">
+                                                <li className="w-full pt-1 lg:pt-0">
                                                     <b>{subclass.name}</b>
                                                 </li>
                                             ))}

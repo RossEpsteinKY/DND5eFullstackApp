@@ -2,6 +2,7 @@
 using DndApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace DndApi.Controllers
 {
@@ -17,9 +18,42 @@ namespace DndApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CreatedCharacterModel>>> GetArticles()
+        [Route("/getCreatedCharacters")]
+        public async Task<ActionResult<IEnumerable<CreatedCharacterModel>>> GetCreatedCharacters()
         {
             return await _context.created_characters.ToListAsync();
         }
+
+        [HttpGet]
+        [HttpGet]
+        [Route("/getCreatedCharacter/{id}")]
+        public async Task<ActionResult<CreatedCharacterModel>> GetOneCreatedCharacter(int id)
+        {
+         
+
+            try
+            {
+                var character = await _context.created_characters.SingleOrDefaultAsync(p => p.id == id);
+
+                if(character == null)
+                {
+                    throw new NotImplementedException();
+                }
+
+                return character;
+                /**     var content = await response.Content.ReadAsStringAsync();
+                var abilityScoreDetails = JsonConvert.DeserializeObject<CharacterDataModel.AbilityScoreDetails>(content);
+
+
+                return Ok(abilityScoreDetails);**/
+
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        
     }
 }

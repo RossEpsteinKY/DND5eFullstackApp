@@ -79,6 +79,56 @@ namespace DndApi.Controllers
         }
 
 
+        [HttpPost]
+        [Route("/createCharacter")]
+        public async Task<string> CreateCharacter(CreatedCharacterModel character)
+        {
+
+
+            try
+            {
+                /** var character = await _context.created_characters.SingleOrDefaultAsync(p => p.id == id && p.isDeleted == false);
+
+
+
+                if (character == null)
+                {
+                    throw new NotImplementedException();
+                }
+
+                character.isDeleted = true;
+                _context.created_characters.Update(character);
+                await _context.SaveChangesAsync();
+
+
+                return $"successfully created character + {character}"; **/
+
+                CreatedCharacterModel newCharacter = new CreatedCharacterModel();
+
+                newCharacter.character_name = character.character_name;
+                newCharacter.character_class= character.character_class;
+                newCharacter.character_level = character.character_level;
+                newCharacter.character_hitpoints = character.character_hitpoints;
+
+
+                _context.created_characters.Add(newCharacter);
+                await _context.SaveChangesAsync();
+
+                return ($"New character created successfully {newCharacter}");
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"ERROR CREATING CHARACTER! {ex}");
+            }
+        }
+
+
+
+
 
 
 

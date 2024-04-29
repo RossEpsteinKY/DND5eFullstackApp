@@ -1,4 +1,6 @@
-﻿namespace DndApi.Models
+﻿using System.ComponentModel;
+
+namespace DndApi.Models
 {
     public class CreatedCharacterModel
     {
@@ -7,7 +9,9 @@
         public int? character_level { get; set; }
         public string? character_class { get; set; }
         public int? character_hitpoints { get; set; }
-        public bool isDeleted { get; set; } = false;
+        
+        [DefaultValue(false)]
+        public bool isDeleted { get; set; }
 
     }
 }

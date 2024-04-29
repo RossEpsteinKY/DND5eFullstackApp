@@ -1,4 +1,4 @@
-import {HTTPBaseService} from "./HTTPBaseService";
+/**import {HTTPBaseService} from "./HTTPBaseService";
 
 
 export class GalleryService extends HTTPBaseService {
@@ -32,3 +32,4 @@ export class GalleryService extends HTTPBaseService {
 
 
 }
+**/

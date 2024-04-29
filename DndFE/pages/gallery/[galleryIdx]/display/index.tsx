@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import {useRouter} from "next/router";
-import { GalleryService } from '../../../../helpers/GalleryService'
+//import { GalleryService } from '../../../../helpers/GalleryService'
 import {Fragment, useState} from "react";
 import { Dialog, Transition } from '@headlessui/react';
 
@@ -94,16 +94,16 @@ function DisplayGalleryPage(props: any) {
 export async function getServerSideProps(context?:any, token?: string) {
     // let randomToken = uuidv4();
     let randomToken = Math.floor(Math.random() * 1000000000000000000000).toString();
-    const galleryService: GalleryService = GalleryService.getInstance(randomToken);
+    //const galleryService: GalleryService = GalleryService.getInstance(randomToken);
 
     const id = context.params?.galleryIdx;
 
     console.log('id is',id);
-    const galleryImages = await galleryService.getGalleryImages(id);
+    //const galleryImages = await galleryService.getGalleryImages(id);
 
     return {
         props: {
-            galleryImages:galleryImages,
+            //galleryImages:galleryImages,
             gallery: context.query
         },
     }

@@ -45,7 +45,7 @@ namespace DndApi.Models
                 public int? aura_range { get; set; }
                 public int? favored_enemies { get; set; }
                 public int? favored_terrain { get; set; }
-                public List<CreatingSpellSlot> Creating_Spell_Slots { get; set; }
+                public List<CreatingSpellSlot>? Creating_Spell_Slots { get; set; }
                 public int? sorcery_points { get; set; }
                 public int? metamagic_known { get; set; }
 

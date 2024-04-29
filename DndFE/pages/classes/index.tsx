@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import {useRouter} from "next/router";
 import {ClassesService} from "../../helpers/ClassesService";
-import {GalleryService} from "../../helpers/GalleryService";
+//import {GalleryService} from "../../helpers/GalleryService";
 import {className} from "postcss-selector-parser";
 
 

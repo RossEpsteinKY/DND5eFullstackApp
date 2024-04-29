@@ -1,5 +1,8 @@
+using DndApi.Data;
 using DnDAPI.Services;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System;
 using System.Text.Json.Serialization;
 //using System.Text.Json.Serialization;
 
@@ -19,6 +22,8 @@ builder.Services.AddControllers().AddJsonOptions(opts =>
     opts.JsonSerializerOptions.Converters.Add(enumConverter);
     opts.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault | JsonIgnoreCondition.WhenWritingNull;
 });
+
+builder.Services.AddDbContext<AppDbContext>();
 
 builder.Services.AddHttpClient();
 builder.Services.AddMvc().AddControllersAsServices();

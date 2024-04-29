@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import {useRouter} from "next/router";
-import {GalleryService} from "../../helpers/GalleryService";
+//import {GalleryService} from "../../helpers/GalleryService";
 
 function Gallery(props: any) {
     const router = useRouter();
@@ -59,14 +59,14 @@ function Gallery(props: any) {
 export async function getServerSideProps(context?:any, token?: string) {
     // let randomToken = uuidv4();
     let randomToken = Math.floor(Math.random() * 1000000000000000000000).toString();
-    const galleryService: GalleryService = GalleryService.getInstance(randomToken);
-    const galleries = await galleryService.getGalleries();
+    //const galleryService: GalleryService = GalleryService.getInstance(randomToken);
+    //const galleries = await galleryService.getGalleries();
 
-    console.log(galleries);
+    //console.log(galleries);
 
     return {
         props: {
-            galleries:galleries,
+       //     galleries:galleries,
         },
     }
 }

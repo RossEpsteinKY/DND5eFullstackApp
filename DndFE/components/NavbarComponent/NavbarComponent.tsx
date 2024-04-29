@@ -31,6 +31,7 @@ function NavbarComponent({  ...props }) {
     const navigation = [
         { name: 'Home', href: '/', current: true },
         { name: 'Classes', href: '/classes', current: false },
+        { name: 'Create Character', href: '/character-creation', current: false },
 
 
     ]

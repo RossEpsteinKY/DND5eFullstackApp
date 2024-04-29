@@ -1,5 +1,6 @@
 ﻿using DndApi.Data;
 using DndApi.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -21,10 +22,9 @@ namespace DndApi.Controllers
         [Route("/getCreatedCharacters")]
         public async Task<ActionResult<IEnumerable<CreatedCharacterModel>>> GetCreatedCharacters()
         {
-            return await _context.created_characters.ToListAsync();
+            return await _context.created_characters.Where(p => p.isDeleted == false).ToListAsync();
         }
 
-        [HttpGet]
         [HttpGet]
         [Route("/getCreatedCharacter/{id}")]
         public async Task<ActionResult<CreatedCharacterModel>> GetOneCreatedCharacter(int id)
@@ -33,7 +33,7 @@ namespace DndApi.Controllers
 
             try
             {
-                var character = await _context.created_characters.SingleOrDefaultAsync(p => p.id == id);
+                var character = await _context.created_characters.SingleOrDefaultAsync(p => p.id == id && p.isDeleted == false);
 
                 if(character == null)
                 {
@@ -41,19 +41,16 @@ namespace DndApi.Controllers
                 }
 
                 return character;
-                /**     var content = await response.Content.ReadAsStringAsync();
-                var abilityScoreDetails = JsonConvert.DeserializeObject<CharacterDataModel.AbilityScoreDetails>(content);
-
-
-                return Ok(abilityScoreDetails);**/
 
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
+                throw new Exception($"Entry with ID of {id} Not Found");
             }
         }
 
-        
+ 
+
+
     }
 }

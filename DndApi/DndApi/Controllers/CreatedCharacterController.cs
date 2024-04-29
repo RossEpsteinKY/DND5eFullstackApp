@@ -1,9 +1,8 @@
 ﻿using DndApi.Data;
 using DndApi.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
+
 
 namespace DndApi.Controllers
 {
@@ -49,7 +48,39 @@ namespace DndApi.Controllers
             }
         }
 
- 
+        [HttpPut]
+        [Route("/deleteCreatedCharacter/{id}")]
+        public async Task<string> DeleteCreatedCharacter(int id)
+        {
+
+
+            try
+            {
+                var character = await _context.created_characters.SingleOrDefaultAsync(p => p.id == id && p.isDeleted == false);
+
+                
+
+                if (character == null)
+                {
+                    throw new NotImplementedException();
+                }
+
+                character.isDeleted = true;
+                _context.created_characters.Update(character);
+                await _context.SaveChangesAsync();
+
+                
+                return $"successfully deleted character with id of {id}";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Entry with ID of {id} Not Found");
+            }
+        }
+
+
+
+
 
 
     }
